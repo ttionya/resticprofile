@@ -1,6 +1,6 @@
 # resticprofile
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/ttionya/ttionya/resticprofile?label=Docker%20Pulls&logo=docker)](https://hub.docker.com/r/ttionya/resticprofile) [![GitHub](https://img.shields.io/github/license/ttionya/ttionya/resticprofile?label=License&logo=github)](https://github.com/ttionya/ttionya/resticprofile/blob/master/LICENSE)
+[![Docker Pulls](https://img.shields.io/docker/pulls/ttionya/resticprofile?label=Docker%20Pulls&logo=docker)](https://hub.docker.com/r/ttionya/resticprofile) [![GitHub](https://img.shields.io/github/license/ttionya/resticprofile?label=License&logo=github)](https://github.com/ttionya/ttionya/resticprofile/blob/master/LICENSE)
 
 Thanks to the great tool, [resticprofile](https://github.com/creativeprojects/resticprofile), but the [official image](https://hub.docker.com/r/creativeprojects/resticprofile) doesn't include any database clients. Therefore, this image is rebuilt based on the official image to include database clients.
 
