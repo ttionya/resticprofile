@@ -23,7 +23,6 @@ jobs:
         run: |
           TAG=$(grep -oP "(?<=creativeprojects/resticprofile:)([.\d]+)" Dockerfile)
           echo "TAG=${TAG}" >> $GITHUB_ENV
-          echo $TAG
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
