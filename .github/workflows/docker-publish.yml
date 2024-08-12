@@ -55,3 +55,17 @@ jobs:
             ttionya/resticprofile:${{ env.TAG }}
             ghcr.io/ttionya/resticprofile:latest
             ghcr.io/ttionya/resticprofile:${{ env.TAG }}
+      -
+        name: Build and push (with docker dependency)
+        uses: docker/build-push-action@v6
+        with:
+          context: '.'
+          file: './Dockerfile'
+          platforms: 'linux/amd64,linux/arm64'
+          build-args: EXTRA_PACKAGES=docker
+          push: true
+          tags: |
+            ttionya/resticprofile:latest-docker
+            ttionya/resticprofile:${{ env.TAG }}-docker
+            ghcr.io/ttionya/resticprofile:latest-docker
+            ghcr.io/ttionya/resticprofile:${{ env.TAG }}-docker
