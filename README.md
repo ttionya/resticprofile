@@ -12,6 +12,16 @@ Rebuilt to include the following database clients:
 
 To support non-root users, this image also includes `supercronic`.
 
+## Image Variants
+
+### `ttionya/resticprofile:<version>`
+
+This is the most basic image, which includes the database clients and `supercronic`.
+
+### `ttionya/resticprofile:<version>-docker`
+
+This image includes the `docker` command, so it will be relatively large. However, you only need to mount the `/var/run/docker.sock` file into the container to control other containers from within the container.
+
 ## Schedule
 
 Resticprofile images are rebuilt every [Sunday](https://github.com/creativeprojects/resticprofile/blob/master/.github/workflows/docker.yml), as per the release cycle detailed [here](https://creativeprojects.github.io/resticprofile/installation/docker/index.html#release-cycle-on-docker-hub).
