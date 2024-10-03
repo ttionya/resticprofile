@@ -1,5 +1,5 @@
 # See https://github.com/creativeprojects/resticprofile/blob/master/build/Dockerfile
-FROM creativeprojects/resticprofile:0.28.0
+FROM creativeprojects/resticprofile:0.28.1
 
 ARG EXTRA_PACKAGES
 
