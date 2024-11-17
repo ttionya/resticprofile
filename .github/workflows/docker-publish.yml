@@ -43,6 +43,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: |
+            ttionya/resticprofile
+            ghcr.io/ttionya/resticprofile
+          labels: |
+            org.opencontainers.image.title=resticprofile
+            org.opencontainers.image.description=Configuration profiles manager and scheduler for restic backup
+            org.opencontainers.image.vendor=ttionya
+            org.opencontainers.image.version=${{ env.TAG }}
+      -
         name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -50,6 +63,7 @@ jobs:
           file: './Dockerfile'
           platforms: 'linux/amd64,linux/arm64'
           push: true
+          labels: ${{ steps.meta.outputs.labels }}
           tags: |
             ttionya/resticprofile:latest
             ttionya/resticprofile:${{ env.TAG }}
@@ -64,6 +78,7 @@ jobs:
           platforms: 'linux/amd64,linux/arm64'
           build-args: EXTRA_PACKAGES=docker
           push: true
+          labels: ${{ steps.meta.outputs.labels }}
           tags: |
             ttionya/resticprofile:latest-docker
             ttionya/resticprofile:${{ env.TAG }}-docker
