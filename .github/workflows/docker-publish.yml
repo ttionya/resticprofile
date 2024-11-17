@@ -21,8 +21,8 @@ jobs:
       -
         name: Prepare
         run: |
-          TAG=$(grep -oP "(?<=creativeprojects/resticprofile:)([.\d]+)" Dockerfile)
-          echo "TAG=${TAG}" >> $GITHUB_ENV
+          VERSION=$(grep -oP "(?<=creativeprojects/resticprofile:)([.\d]+)" Dockerfile)
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -46,41 +46,11 @@ jobs:
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
-        with:
-          images: |
-            ttionya/resticprofile
-            ghcr.io/ttionya/resticprofile
-          labels: |
-            org.opencontainers.image.title=resticprofile
-            org.opencontainers.image.description=Configuration profiles manager and scheduler for restic backup
-            org.opencontainers.image.vendor=ttionya
-            org.opencontainers.image.version=${{ env.TAG }}
       -
         name: Build and push
-        uses: docker/build-push-action@v6
+        uses: docker/bake-action@v5
         with:
-          context: '.'
-          file: './Dockerfile'
-          platforms: 'linux/amd64,linux/arm64'
+          files: |
+            ./docker-bake.hcl
+            ${{ steps.meta.outputs.bake-file-labels }}
           push: true
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            ttionya/resticprofile:latest
-            ttionya/resticprofile:${{ env.TAG }}
-            ghcr.io/ttionya/resticprofile:latest
-            ghcr.io/ttionya/resticprofile:${{ env.TAG }}
-      -
-        name: Build and push (with docker dependency)
-        uses: docker/build-push-action@v6
-        with:
-          context: '.'
-          file: './Dockerfile'
-          platforms: 'linux/amd64,linux/arm64'
-          build-args: EXTRA_PACKAGES=docker
-          push: true
-          labels: ${{ steps.meta.outputs.labels }}
-          tags: |
-            ttionya/resticprofile:latest-docker
-            ttionya/resticprofile:${{ env.TAG }}-docker
-            ghcr.io/ttionya/resticprofile:latest-docker
-            ghcr.io/ttionya/resticprofile:${{ env.TAG }}-docker
