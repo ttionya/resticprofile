@@ -46,9 +46,17 @@ jobs:
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
+        with:
+          labels: |
+            org.opencontainers.image.title=resticprofile
+            org.opencontainers.image.description=Configuration profiles manager and scheduler for restic backup
+            org.opencontainers.image.vendor=ttionya
+            org.opencontainers.image.version=${{ env.VERSION }}
       -
         name: Build and push
         uses: docker/bake-action@v5
+        env:
+          VERSION: ${{ env.VERSION }}
         with:
           files: |
             ./docker-bake.hcl
