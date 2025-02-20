@@ -7,7 +7,7 @@ Thanks to the great tool, [resticprofile](https://github.com/creativeprojects/re
 Rebuilt to include the following database clients:
 
 - [MySQL / MariaDB](https://pkgs.alpinelinux.org/packages?name=mariadb-client&branch=edge)
-- [PostgreSQL 16](https://pkgs.alpinelinux.org/packages?name=postgresql16-client&branch=edge)
+- [PostgreSQL 17](https://pkgs.alpinelinux.org/packages?name=postgresql17-client&branch=edge)
 - [SQLite 3](https://pkgs.alpinelinux.org/packages?name=sqlite&branch=edge)
 
 To support non-root users, this image also includes `supercronic`.

@@ -5,7 +5,7 @@ FROM creativeprojects/resticprofile:0.29.1
 
 ARG EXTRA_PACKAGES
 
-RUN apk add --no-cache bash mariadb-client postgresql16-client sqlite supercronic ${EXTRA_PACKAGES:""}
+RUN apk add --no-cache bash mariadb-client postgresql17-client sqlite supercronic ${EXTRA_PACKAGES:""}
 
 ENTRYPOINT ["resticprofile"]
 CMD ["--help"]
