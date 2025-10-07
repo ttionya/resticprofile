@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # See https://github.com/creativeprojects/resticprofile/blob/master/build/Dockerfile
-FROM creativeprojects/resticprofile:0.31.0
+FROM creativeprojects/resticprofile:0.32.0
 
 ARG EXTRA_PACKAGES
 
