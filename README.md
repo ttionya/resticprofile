@@ -20,7 +20,7 @@ This is the most basic image, which includes the database clients and `supercron
 
 ### `ttionya/resticprofile:<version>-docker`
 
-Contains all the features of the base image, plus additional `docker` command, so it will be relatively large. However, you can mount the `/var/run/docker.sock` file into the container to control other containers from within the container.
+Contains all the features of the base image, plus additional `docker` command (provided by `docker-cli`), so it will be relatively large. However, you can mount the `/var/run/docker.sock` file into the container to control other containers from within the container.
 
 ```bash
 docker run --rm \

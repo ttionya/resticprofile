@@ -24,7 +24,7 @@ target "image-normal" {
 target "image-docker" {
   inherits = ["_common"]
   args = {
-    EXTRA_PACKAGES = "docker"
+    EXTRA_PACKAGES = "docker-cli"
   }
   tags = [
     "ttionya/resticprofile:latest-docker",
