@@ -31,7 +31,7 @@ docker run --rm \
 
 ## Schedule
 
-Resticprofile images are rebuilt every [Sunday](https://github.com/creativeprojects/resticprofile/blob/master/.github/workflows/docker.yml), as per the release cycle detailed [here](https://creativeprojects.github.io/resticprofile/installation/docker/index.html#release-cycle-on-docker-hub).
+Resticprofile images are rebuilt every [Sunday](https://github.com/creativeprojects/resticprofile/blob/master/.github/workflows/docker.yml), as per the release cycle detailed [here](https://creativeprojects.github.io/resticprofile/installation/docker/index.html#container-imager-release-cycle).
 
 This image will be rebuilt a bit later, approximately every Monday at 6:00 AM.
 
